@@ -1,6 +1,6 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
-import Dashboard from "./Dashboard";
 
 function Layout() {
   return (
@@ -14,7 +14,7 @@ function Layout() {
         </header>
 
         <main className="p-4">
-          <Dashboard />
+          <Outlet />
         </main>
       </div>
     </div>

@@ -1,9 +1,9 @@
-
 /* eslint-disable react-refresh/only-export-components */
 import {
   createContext,
   useCallback,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -16,55 +16,55 @@ import {
 
 export const ProductContext = createContext(null);
 
+const getErrorMessage = (error, fallback) =>
+  error instanceof Error ? error.message : fallback;
+
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-    // Fetch products from the API
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
 
       const data = await getProducts();
-      setProducts(data);
+      const nextProducts = Array.isArray(data) ? data : [];
+
+      setProducts(nextProducts);
+      return nextProducts;
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err, 'Failed to fetch products.'));
+      return [];
     } finally {
       setLoading(false);
     }
   }, []);
 
-    // Fetch products when the provider first loads
   useEffect(() => {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      fetchProducts();
-    }, [fetchProducts]);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchProducts();
+  }, [fetchProducts]);
 
-    // Add a product
-  const addProduct = async (product) => {
+  const addProduct = useCallback(async (product) => {
     try {
       setLoading(true);
       setError(null);
 
       const newProduct = await createProduct(product);
-      setProducts((currentProducts) => [
-        ...currentProducts,
-        newProduct,
-      ]);
 
+      setProducts((currentProducts) => [...currentProducts, newProduct]);
       return newProduct;
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err, 'Failed to add product.'));
       throw err;
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-    // Edit a product
-  const editProduct = async (id, updates) => {
+  const editProduct = useCallback(async (id, updates) => {
     try {
       setLoading(true);
       setError(null);
@@ -73,23 +73,20 @@ export function ProductProvider({ children }) {
 
       setProducts((currentProducts) =>
         currentProducts.map((product) =>
-          String(product.id) === String(id)
-            ? updatedProduct
-            : product
+          String(product.id) === String(id) ? updatedProduct : product
         )
       );
 
       return updatedProduct;
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err, 'Failed to update product.'));
       throw err;
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-    // Remove a product
-  const removeProduct = async (id) => {
+  const removeProduct = useCallback(async (id) => {
     try {
       setLoading(true);
       setError(null);
@@ -101,23 +98,36 @@ export function ProductProvider({ children }) {
           (product) => String(product.id) !== String(id)
         )
       );
+
+      return id;
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err, 'Failed to delete product.'));
       throw err;
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const value = {
-    products,
-    loading,
-    error,
-    fetchProducts,
-    addProduct,
-    editProduct,
-    removeProduct,
-  };
+  const value = useMemo(
+    () => ({
+      products,
+      loading,
+      error,
+      fetchProducts,
+      addProduct,
+      editProduct,
+      removeProduct,
+    }),
+    [
+      products,
+      loading,
+      error,
+      fetchProducts,
+      addProduct,
+      editProduct,
+      removeProduct,
+    ]
+  );
 
   return (
     <ProductContext.Provider value={value}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProductForm } from "components/ProductForm";
+import { ProductForm } from "./ProductForm";
 
 // Change later to match team's server address
 const API_URL = "http://localhost:3000/products";
@@ -23,8 +23,9 @@ export function EditProduct() {
 
         const data = await response.json();
         setProduct(data);
-      } catch (error) {
-        setMessage("Could not load the product.");
+    } catch {
+      setMessage("Could not load the product.");
+
       }
     }
 
@@ -45,7 +46,7 @@ export function EditProduct() {
       }
 
       navigate("/products");
-    } catch (error) {
+    } catch {
       setMessage("Could not save your changes. Please try again.");
     }
   }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductForm } from "components/ProductForm";
+import { ProductForm } from "./ProductForm";
 
 // Change later to match team's server address
 const API_URL = "http://localhost:3000/products";
@@ -22,7 +22,7 @@ export function AddProduct() {
       }
 
       navigate("/products");
-    } catch (error) {
+    } catch {
       setMessage("Could not add the product. Please try again.");
     }
   }

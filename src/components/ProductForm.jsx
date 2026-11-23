@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FormInput } from "components/FormInput";
-import { FormTextArea } from "components/FormTextArea";
-import { FormSelect } from "components/FormSelect";
-import { FormCheckbox } from "components/FormCheckbox";
-import { FormActions } from "components/FormActions";
+import { FormInput } from "./FormInput";
+import { FormTextArea } from "./FormTextArea";
+import { FormSelect } from "./FormSelect";
+import { FormCheckbox } from "./FormCheckBox";
+import { FormActions } from "./FormActions";
 
 // Change these to your team's 6 categories
 const categories = ["Headphones", "Speakers", "Keyboards", "Accessories", "Cables", "Other"];

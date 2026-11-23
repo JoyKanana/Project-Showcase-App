@@ -1,31 +1,41 @@
 {
-    "products": [
-        {
-            "id": "1",
-            "name": "Wireless Headphones",
-            "description": "Noise-cancelling wireless headphones with high-quality sound.",
-            "price": 4500,
-            "category": "Electronics",
-            "image": "https://placehold.co/300x300",
-            "stock": 25
-        },
-        {
-            "id": "2",
-            "name": "Smart Watch",
-            "description": "Smart watch with fitness tracking and notifications.",
-            "price": 6500,
-            "category": "Electronics",
-            "image": "https://placehold.co/300x300",
-            "stock": 15
-        },
-        {
-            "id": "3",
-            "name": "Leather Backpack",
-            "description": "Durable everyday backpack with multiple compartments.",
-            "price": 3200,
-            "category": "Accessories",
-            "image": "https://placehold.co/300x300",
-            "stock": 10
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "name": "Wireless Headphones",
+      "description": "Noise-cancelling wireless headphones with high-quality sound.",
+      "price": 4500,
+      "category": "Electronics",
+      "image": "https://placehold.co/300x300",
+      "stock": 25
+    },
+    {
+      "id": "2",
+      "name": "Smart Watch",
+      "description": "Smart watch with fitness tracking and notifications.",
+      "price": 6500,
+      "category": "Electronics",
+      "image": "https://placehold.co/300x300",
+      "stock": 15
+    },
+    {
+      "id": "3",
+      "name": "Leather Backpack",
+      "description": "Durable everyday backpack with multiple compartments.",
+      "price": 3200,
+      "category": "Accessories",
+      "image": "https://placehold.co/300x300",
+      "stock": 10
+    },
+    {
+      "name": "JBL Headphones",
+      "description": "Latest Headphones with noise-cancelling features",
+      "category": "Headphones",
+      "price": 67000,
+      "inStock": true,
+      "image": "https://unsplash.com/photos/a-pair-of-headphones-sitting-on-top-of-each-other-A6hzRnwR3vM",
+      "id": "c0YXFCUDqDE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

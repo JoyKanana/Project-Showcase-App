@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import StatCard from "./Statcards";
+import ProductCard from "./ProductCard";
 function Dashboard() {
     return (
         <div className="space-y-6 text-black">
@@ -17,7 +19,7 @@ function Dashboard() {
                 <StatCard title="Best seller" value="Wireless headphones" />
             </section>
             {/*separating the sales overview and  and product section into two columns*/}
-            <div className=" grid  gap-5 lg:grid-cols-2">
+            <div className=" grid  gap-5 lg:grid-cols">
                 <section className="rounded-lg bg-white p-5 shadow-sm">
                     <h2>Sales overview</h2>
                     <section>
@@ -41,41 +43,23 @@ function Dashboard() {
                     </ul>
 
                 </section>
-                  <section className="rounded-lg bg-white p-5 shadow-sm">
-          <h2 className="mb-4 font-semibold text-gray-800">Quick actions</h2>
-          <div className="grid grid-cols-2 gap-3">
-
-            {/* TODO: replace these buttons with the Links below when routing is ready */}
-            <button
-              type="button"
-              className="rounded-lg bg-[#673F89] p-4 text-center text-sm font-medium  transition hover:bg-purple-100"
-            >
-              Add product
-            </button>
-            <button
-              type="button"
-              className="rounded-lg bg-[#673F89] p-4 text-center text-sm font-medium  transition hover:bg-purple-100"
-            >
-              View products
-            </button>
-
-            {/*
-            <Link
-              to="/products/new"
-              className="rounded-lg bg-purple-50 p-4 text-center text-sm font-medium text-[#673F89] transition hover:bg-purple-100"
-            >
-              Add product
-            </Link>
-            <Link
-              to="/products"
-              className="rounded-lg bg-purple-50 p-4 text-center text-sm font-medium text-[#673F89] transition hover:bg-purple-100"
-            >
-              View products
-            </Link>
-            */}
-
-          </div>
-        </section>
+                <section className="rounded-lg bg-white p-5 shadow-sm">
+                    <h2 className="mb-4 font-semibold text-gray-800">Quick actions</h2>
+                    <div className="grid grid-cols-2 gap-3">
+                        <Link
+                            to="/products/add"
+                            className="rounded-lg bg-purple-50 p-4 text-center text-sm font-medium text-[#673F89] transition hover:bg-purple-100"
+                        >
+                            Add product
+                        </Link>
+                        <Link
+                            to="/products"
+                            className="rounded-lg bg-purple-50 p-4 text-center text-sm font-medium text-[#673F89] transition hover:bg-purple-100"
+                        >
+                            View products
+                        </Link>
+                    </div>
+                </section>
 
             </div>
 
