@@ -2,7 +2,7 @@
 
 An administrator portal for an e-commerce website. The admin can see a dashboard, view products, search for a product, add a new product, and edit an existing one.
 
-Live site: https://YOUR-USERNAME.github.io/Project-Showcase-App/
+Live site: https://JoyKanana.github.io/Project-Showcase-App/
 
 ## Features
 
