@@ -1,0 +1,31 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "Wireless Headphones",
+            "description": "Noise-cancelling wireless headphones with high-quality sound.",
+            "price": 4500,
+            "category": "Electronics",
+            "image": "https://placehold.co/300x300",
+            "stock": 25
+        },
+        {
+            "id": "2",
+            "name": "Smart Watch",
+            "description": "Smart watch with fitness tracking and notifications.",
+            "price": 6500,
+            "category": "Electronics",
+            "image": "https://placehold.co/300x300",
+            "stock": 15
+        },
+        {
+            "id": "3",
+            "name": "Leather Backpack",
+            "description": "Durable everyday backpack with multiple compartments.",
+            "price": 3200,
+            "category": "Accessories",
+            "image": "https://placehold.co/300x300",
+            "stock": 10
+        }
+    ]
+}
